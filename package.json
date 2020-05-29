@@ -18,6 +18,7 @@
   "author": "azu",
   "files": [
     "bin/",
+    "dist/",
     "lib/",
     "src/"
   ],
