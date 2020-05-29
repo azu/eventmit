@@ -109,3 +109,8 @@ For bugs and feature requests, [please create an issue](https://github.com/azu/e
 ## License
 
 MIT © azu
+
+## Related
+
+- [developit/mitt: 🥊 Tiny 200 byte functional event emitter / pubsub.](https://github.com/developit/mitt)
+    - Support multiple event type
