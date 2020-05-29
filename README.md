@@ -62,6 +62,23 @@ export declare const eventmit: <T>() => {
 };
 ```
 
+## ECMAScript Modules
+
+You can import `eventmit` as ES Modules.
+
+```js
+import { eventmit } from "https://unpkg.com/eventmit?module";
+const event = eventmit();
+// Register handler
+event.on((value) => {
+    console.log(value);
+});
+// Invoke handler
+event.emit("value");
+```
+
+It means that eventmit work on Browser and [Deno](https://deno.land/).
+
 ## Changelog
 
 See [Releases page](https://github.com/azu/eventmit/releases).
