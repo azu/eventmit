@@ -5,7 +5,7 @@ A single event object per the event.
 ## Feature
 
 - A single event object for the event
-- Tiny code base - 20 LOC
+- Tiny code base - less 1Kb
 - Written by TypeScript
 
 ## Install
