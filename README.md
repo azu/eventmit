@@ -14,7 +14,7 @@ Install with [npm](https://www.npmjs.com/):
 
     npm install eventmit
 
-Requirement: ECMAScript 2015 - This library use `Set`.
+Requirement: ECMAScript 2015 because this library use `Set`.
 
 ## Usage
 
