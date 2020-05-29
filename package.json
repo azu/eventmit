@@ -1,0 +1,72 @@
+{
+  "name": "eventmit",
+  "version": "1.0.0",
+  "description": "One event per one event.",
+  "keywords": [
+    "events",
+    "eventemitter"
+  ],
+  "homepage": "https://github.com/azu/eventmit",
+  "bugs": {
+    "url": "https://github.com/azu/eventmit/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/azu/eventmit.git"
+  },
+  "license": "MIT",
+  "author": "azu",
+  "files": [
+    "bin/",
+    "lib/",
+    "src/"
+  ],
+  "source": "src/eventmit.ts",
+  "main": "dist/eventmit.js",
+  "types": "dist/eventmit.d.ts",
+  "module": "dist/eventmit.module.js",
+  "esmodule": "dist/eventmit.modern.js",
+  "unpkg": "dist/eventmit.umd.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "build": "microbundle",
+    "clean": "rimraf lib/",
+    "prettier": "prettier --write \"**/*.{js,jsx,ts,tsx,css}\"",
+    "prepublish": "npm run --if-present build",
+    "test": "mocha \"test/**/*.ts\"",
+    "watch": "tsc -p . --watch"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,css}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "prettier": {
+    "printWidth": 120,
+    "singleQuote": false,
+    "tabWidth": 4
+  },
+  "devDependencies": {
+    "@types/mocha": "^7.0.2",
+    "@types/node": "^14.0.5",
+    "cross-env": "^7.0.2",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.7",
+    "microbundle": "^0.12.0",
+    "mocha": "^7.2.0",
+    "prettier": "^2.0.5",
+    "rimraf": "^3.0.2",
+    "ts-node": "^8.10.2",
+    "ts-node-test-register": "^8.0.1",
+    "typescript": "^3.9.3"
+  }
+}
