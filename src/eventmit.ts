@@ -6,9 +6,7 @@ export const eventmit = <T>() => {
          * Register an event handler
          */
         on(handler: EventmitHandler<T>) {
-            if (!set.has(handler)) {
-                set.add(handler);
-            }
+            set.add(handler);
         },
         /**
          * Remove an event handler
