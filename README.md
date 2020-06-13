@@ -4,8 +4,8 @@ A single event object per the event.
 
 ## Feature
 
-- A single event object for the event
-- Tiny code base - less 1Kb
+- A single event object per an event
+- Tiny code base - less 1kb
 - Written by TypeScript
 
 ## Install
