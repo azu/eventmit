@@ -42,24 +42,25 @@ event.offAll();
 
 ```ts
 export declare type EventmitHandler<T> = (value: T) => any;
-export declare const eventmit: <T>() => {
+export declare type Eventmitter<T> = {
     /**
      * Register an event handler
      */
-    on(handler: EventmitHandler<T>): void;
+    on: (handler: EventmitHandler<T>) => void;
     /**
      * Remove an event handler
      */
-    off(handler: EventmitHandler<T>): void;
+    off: (handler: EventmitHandler<T>) => void;
     /**
      * Remove all event handlers
      */
-    offAll(): void;
+    offAll: () => void;
     /**
      * Invoke all handlers
      */
-    emit(value: T): void;
+    emit: (value: T) => void;
 };
+export declare const eventmit: <T>() => Eventmitter<T>;
 ```
 
 ## ECMAScript Modules

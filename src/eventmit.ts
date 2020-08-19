@@ -1,6 +1,6 @@
 export type EventmitHandler<T> = (value: T) => any;
 
-export type Mitter<T> = {
+export type Eventmitter<T> = {
     /**
      * Register an event handler
      */
@@ -19,7 +19,7 @@ export type Mitter<T> = {
     emit: (value: T) => void;
 };
 
-export const eventmit: <T>() => Mitter<T> = <T>() => {
+export const eventmit: <T>() => Eventmitter<T> = <T>() => {
     const set = new Set<EventmitHandler<T>>();
     return {
         on(handler: EventmitHandler<T>) {
