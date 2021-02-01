@@ -1,4 +1,5 @@
-export type EventmitHandler<T> = (value: T) => any;
+type ToArgsType<T> = T extends Array<unknown> ? T : readonly [T];
+export type EventmitHandler<T> = (...args: ToArgsType<T>) => unknown;
 
 export type Eventmitter<T> = {
     /**
@@ -16,10 +17,10 @@ export type Eventmitter<T> = {
     /**
      * Invoke all handlers
      */
-    emit: (value: T) => void;
+    emit: (...value: ToArgsType<T>) => void;
 };
 
-export const eventmit: <T>() => Eventmitter<T> = <T>() => {
+export const eventmit = <T extends ReadonlyArray<unknown> | unknown = []>(): Eventmitter<T> => {
     const set = new Set<EventmitHandler<T>>();
     return {
         on(handler: EventmitHandler<T>) {
@@ -31,8 +32,8 @@ export const eventmit: <T>() => Eventmitter<T> = <T>() => {
         offAll() {
             set.clear();
         },
-        emit(value: T) {
-            set.forEach((handler) => handler(value));
+        emit(...value: ToArgsType<T>) {
+            set.forEach((handler) => handler(...value));
         },
     };
 };
