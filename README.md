@@ -1,6 +1,6 @@
 # eventmit [![Actions Status](https://github.com/azu/eventmit/workflows/test/badge.svg)](https://github.com/azu/eventmit/actions?query=workflow%3A"test")
 
-A single event object per the event.
+A single event object per an event.
 
 ## Feature
 
