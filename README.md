@@ -80,6 +80,14 @@ event.emit("value");
 
 It means that eventmit work on Browser and [Deno](https://deno.land/).
 
+### Import at Deno
+If you are using Deno, import `eventmit` from a URL.  
+For example, using a CDN:
+
+```typescript
+import { eventmit } from "https://cdn.skypack.dev/eventmit?dts";
+```
+
 ## Changelog
 
 See [Releases page](https://github.com/azu/eventmit/releases).
