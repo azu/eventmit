@@ -29,6 +29,7 @@
   "module": "module/eventmit.js",
   "exports": {
     ".": {
+      "types": "./module/eventmit.d.ts",
       "import": "./module/eventmit.js",
       "require": "./lib/eventmit.js",
       "default": "./lib/eventmit.js"
