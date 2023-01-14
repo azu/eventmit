@@ -19,6 +19,7 @@
   "files": [
     "bin/",
     "dist/",
+    "module/",
     "lib/",
     "src/"
   ],
