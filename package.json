@@ -43,7 +43,7 @@
     "build": "tsc -p . && tsc -p ./tsconfig.cjs.json && tsconfig-to-dual-package",
     "clean": "git clean -fx lib/ dist/",
     "prepublish": "npm run --if-present build",
-    "test": "mocha \"test/**/*.ts\"",
+    "test": "mocha",
     "watch": "tsc -p . --watch",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,css}\"",
     "prepare": "git config --local core.hooksPath .githooks"
@@ -66,7 +66,6 @@
     "mocha": "^10.2.0",
     "prettier": "^2.8.3",
     "ts-node": "^10.9.1",
-    "ts-node-test-register": "^10.0.0",
     "tsconfig-to-dual-package": "^1.0.6",
     "typescript": "^4.9.4"
   }
