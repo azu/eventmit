@@ -1,8 +1,5 @@
 {
   "$schema": "https://json.schemastore.org/mocharc",
-  "require": [
-    "ts-node-test-register"
-  ],
   "loader": "ts-node/esm",
   "spec": [
     "test/**/*.ts"
