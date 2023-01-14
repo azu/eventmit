@@ -18,7 +18,6 @@
   "author": "azu",
   "files": [
     "bin/",
-    "dist/",
     "module/",
     "lib/",
     "src/"
