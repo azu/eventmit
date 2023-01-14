@@ -22,10 +22,19 @@
     "lib/",
     "src/"
   ],
+  "type": "module",
   "source": "src/eventmit.ts",
   "main": "cjs/eventmit.js",
   "types": "module/eventmit.d.ts",
   "module": "module/eventmit.js",
+  "exports": {
+    ".": {
+      "import": "./module/eventmit.js",
+      "require": "./cjs/eventmit.js",
+      "default": "./cjs/eventmit.js"
+    },
+    "./package.json": "./package.json"
+  },
   "directories": {
     "lib": "lib",
     "test": "test"

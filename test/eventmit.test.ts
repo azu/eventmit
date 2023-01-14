@@ -1,4 +1,4 @@
-import { eventmit, EventmitHandler } from "../src/eventmit";
+import { eventmit, EventmitHandler } from "../src/eventmit.js";
 import assert from "assert";
 
 describe("eventmit", function () {
@@ -11,7 +11,7 @@ describe("eventmit", function () {
         event.emit(payload);
         assert.deepStrictEqual(caller, [
             [1, payload],
-            [2, payload],
+            [2, payload]
         ]);
     });
     it("unregister handler", () => {
@@ -35,13 +35,13 @@ describe("eventmit", function () {
         event.emit("payload");
         assert.deepStrictEqual(caller, [
             [1, "payload"],
-            [2, "payload"],
+            [2, "payload"]
         ]);
         event.offAll();
         event.emit("payload 2");
         assert.deepStrictEqual(caller, [
             [1, "payload"],
-            [2, "payload"],
+            [2, "payload"]
         ]);
     });
 });
