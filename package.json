@@ -29,9 +29,14 @@
   "module": "module/eventmit.js",
   "exports": {
     ".": {
-      "types": "./module/eventmit.d.ts",
-      "import": "./module/eventmit.js",
-      "require": "./lib/eventmit.js",
+      "import": {
+        "types": "./module/eventmit.d.ts",
+        "default": "./module/eventmit.js"
+      },
+      "require": {
+        "types": "./lib/eventmit.d.ts",
+        "default": "./lib/eventmit.js"
+      },
       "default": "./lib/eventmit.js"
     },
     "./package.json": "./package.json"
@@ -42,7 +47,7 @@
   },
   "scripts": {
     "build": "tsc -p . && tsc -p ./tsconfig.cjs.json && tsconfig-to-dual-package",
-    "clean": "git clean -fx lib/ dist/",
+    "clean": "git clean -fx module/ lib/",
     "prepublish": "npm run --if-present build",
     "test": "mocha",
     "watch": "tsc -p . --watch",
