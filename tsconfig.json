@@ -2,7 +2,6 @@
   "compilerOptions": {
     /* Basic Options */
     "module": "ESNext",
-    "moduleResolution": "NodeNext",
     "esModuleInterop": true,
     "newLine": "LF",
     "outDir": "./module/",
