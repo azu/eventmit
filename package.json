@@ -66,12 +66,12 @@
     "trailingComma": "none"
   },
   "devDependencies": {
-    "@types/mocha": "^10.0.1",
-    "@types/node": "^18.11.18",
-    "lint-staged": "^13.1.0",
+    "@types/mocha": "^10.0.6",
+    "@types/node": "^20.11.10",
+    "lint-staged": "^15.2.0",
     "mocha": "^10.2.0",
-    "prettier": "^2.8.3",
-    "tsconfig-to-dual-package": "^1.0.6",
+    "prettier": "^3.2.4",
+    "tsconfig-to-dual-package": "^1.2.0",
     "tsimp": "^2.0.10",
     "typescript": "^5.3.3"
   }
