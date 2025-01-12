@@ -46,10 +46,10 @@
     "test": "test"
   },
   "scripts": {
-    "build": "tsc -p . && tsc -p ./tsconfig.cjs.json && tsconfig-to-dual-package",
+    "build": "tsc -p .",
     "clean": "git clean -fx module/ lib/",
     "prepublish": "npm run --if-present build",
-    "test": "mocha",
+    "test": "node --test \"test/**/*.ts\"",
     "watch": "tsc -p . --watch",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,css}\"",
     "prepare": "git config --local core.hooksPath .githooks"
@@ -66,13 +66,10 @@
     "trailingComma": "none"
   },
   "devDependencies": {
-    "@types/mocha": "^10.0.1",
-    "@types/node": "^18.11.18",
-    "lint-staged": "^13.1.0",
-    "mocha": "^10.2.0",
-    "prettier": "^2.8.3",
-    "ts-node": "^10.9.1",
-    "tsconfig-to-dual-package": "^1.0.6",
-    "typescript": "^4.9.4"
-  }
+    "@types/node": "^22.10.5",
+    "lint-staged": "^15.3.0",
+    "prettier": "^3.4.2",
+    "typescript": "^5.7.3"
+  },
+  "packageManager": "npm@11.0.0+sha512.11dff29565d2297c74e7c594a9762581bde969f0aa5cbe6f5b3644bf008a16c065ece61094d9ffbb81125be38df8e1ba43eb8244b3d30c61eb797e9a2440e3ec"
 }

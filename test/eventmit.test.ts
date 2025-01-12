@@ -1,4 +1,6 @@
-import { eventmit, EventmitHandler } from "../src/eventmit.js";
+import type { EventmitHandler } from "../src/eventmit.ts";
+import { eventmit } from "../src/eventmit.ts";
+import { describe, it } from "node:test";
 import assert from "assert";
 
 describe("eventmit", function () {
