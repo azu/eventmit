@@ -47,10 +47,10 @@
   },
   "scripts": {
     "build": "tsc -p .",
-    "clean": "git clean -fx module/ lib/",
+    "clean": "git clean -fx module/",
     "prepublish": "npm run --if-present build",
-    "test": "node --experimental-strip-types --test \"test/**/*.ts\"",
-    "watch": "tsc -p . --watch",
+    "test": "npm run build && npm run test:unit",
+    "test:unit": "node --experimental-strip-types --test \"test/unit/**/*.ts\"",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,css}\"",
     "prepare": "git config --local core.hooksPath .githooks"
   },
