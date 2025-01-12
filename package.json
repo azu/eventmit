@@ -49,7 +49,7 @@
     "build": "tsc -p .",
     "clean": "git clean -fx module/ lib/",
     "prepublish": "npm run --if-present build",
-    "test": "node --test \"test/**/*.ts\"",
+    "test": "node --experimental-strip-types --test \"test/**/*.ts\"",
     "watch": "tsc -p . --watch",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,css}\"",
     "prepare": "git config --local core.hooksPath .githooks"
