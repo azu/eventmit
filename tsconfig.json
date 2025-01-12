@@ -9,6 +9,7 @@
     "target": "ES2018",
     "sourceMap": true,
     "declaration": true,
+    "verbatimModuleSyntax": true,
     "jsx": "preserve",
     "lib": [
       "esnext",
