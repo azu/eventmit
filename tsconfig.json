@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     /* Basic Options */
-    "module": "ESNext",
+    "module": "NodeNext",
     "moduleResolution": "NodeNext",
     "esModuleInterop": true,
     "newLine": "LF",
@@ -9,6 +9,7 @@
     "target": "ES2018",
     "sourceMap": true,
     "declaration": true,
+    "verbatimModuleSyntax": true,
     "jsx": "preserve",
     "lib": [
       "esnext",
