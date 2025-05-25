@@ -19,28 +19,13 @@
   "files": [
     "bin/",
     "module/",
-    "lib/",
     "src/"
   ],
   "type": "module",
-  "source": "src/eventmit.ts",
-  "main": "lib/eventmit.js",
-  "types": "module/eventmit.d.ts",
-  "module": "module/eventmit.js",
-  "exports": {
-    ".": {
-      "import": {
-        "types": "./module/eventmit.d.ts",
-        "default": "./module/eventmit.js"
-      },
-      "require": {
-        "types": "./lib/eventmit.d.ts",
-        "default": "./lib/eventmit.js"
-      },
-      "default": "./lib/eventmit.js"
-    },
-    "./package.json": "./package.json"
-  },
+  "source": "./src/eventmit.ts",
+  "main": "./module/eventmit.js",
+  "types": "./module/eventmit.d.ts",
+  "exports": "./module/eventmit.js",
   "directories": {
     "lib": "lib",
     "test": "test"
@@ -49,9 +34,9 @@
     "build": "tsc -p .",
     "clean": "git clean -fx module/",
     "prepublish": "npm run --if-present build",
-    "test": "node --run test:build && node --run test:unit",
+    "test": "node --run build && node --run test:unit",
     "test:build": "tsc -p test",
-    "test:unit": "node --experimental-strip-types --test \"test/unit/**/*.ts\"",
+    "test:unit": "node --experimental-strip-types --test \"test/**/*.ts\"",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,css}\"",
     "prepare": "git config --local core.hooksPath .githooks"
   },
@@ -67,10 +52,10 @@
     "trailingComma": "none"
   },
   "devDependencies": {
-    "@types/node": "^22.10.5",
-    "lint-staged": "^15.3.0",
-    "prettier": "^3.4.2",
-    "typescript": "^5.7.3"
+    "@types/node": "^22.15.21",
+    "lint-staged": "^16.0.0",
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.3"
   },
   "packageManager": "npm@11.0.0+sha512.11dff29565d2297c74e7c594a9762581bde969f0aa5cbe6f5b3644bf008a16c065ece61094d9ffbb81125be38df8e1ba43eb8244b3d30c61eb797e9a2440e3ec"
 }
