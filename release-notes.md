@@ -2,4 +2,4 @@
 
 
 
-**Full Changelog**: https://github.com/azu/eventmit/compare/v3.0.1...v3.0.2
+**Full Changelog**: https://github.com/azu/eventmit/compare/v3.0.2...v3.0.3
