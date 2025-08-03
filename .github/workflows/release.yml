@@ -6,12 +6,20 @@ on:
       - master
     types:
       - closed
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to publish (e.g., 1.2.3)'
+        required: false
+        type: string
 
 jobs:
   release:
     if: |
-      github.event.pull_request.merged == true &&
-      contains(github.event.pull_request.labels.*.name, 'Type: Release')
+      (github.event_name == 'pull_request' && 
+       github.event.pull_request.merged == true &&
+       contains(github.event.pull_request.labels.*.name, 'Type: Release')) ||
+      github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -25,7 +33,11 @@ jobs:
       - name: Get current version
         id: version
         run: |
-          VERSION=$(node -p "require('./package.json').version")
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ -n "${{ github.event.inputs.version }}" ]; then
+            VERSION="${{ github.event.inputs.version }}"
+          else
+            VERSION=$(node -p "require('./package.json').version")
+          fi
           echo "version=$VERSION" >> $GITHUB_OUTPUT
       
       - name: Check if tag exists
@@ -43,6 +55,17 @@ jobs:
         with:
           node-version: 22
           registry-url: 'https://registry.npmjs.org'
+      
+      - name: Ensure npm 11.5.1 or later is installed
+        if: steps.tag-check.outputs.exists == 'false'
+        run: |
+          NPM_VERSION=$(npm -v)
+          echo "Current npm version: $NPM_VERSION"
+          if ! npx semver -r ">=11.5.1" "$NPM_VERSION"; then
+            echo "npm version $NPM_VERSION is too old. Installing latest npm..."
+            npm install -g npm@latest
+            echo "Updated npm version: $(npm -v)"
+          fi
       
       - name: Install dependencies
         if: steps.tag-check.outputs.exists == 'false'
@@ -67,8 +90,14 @@ jobs:
       - name: Create GitHub Release
         if: steps.tag-check.outputs.exists == 'false'
         run: |
-          gh release create "v${{ steps.version.outputs.version }}" \
-            --title "v${{ steps.version.outputs.version }}" \
-            --notes "${{ github.event.pull_request.body }}"
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            gh release create "v${{ steps.version.outputs.version }}" \
+              --title "v${{ steps.version.outputs.version }}" \
+              --generate-notes
+          else
+            gh release create "v${{ steps.version.outputs.version }}" \
+              --title "v${{ steps.version.outputs.version }}" \
+              --notes "${{ github.event.pull_request.body }}"
+          fi
         env:
           GH_TOKEN: ${{ github.token }}
