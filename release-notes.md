@@ -2,7 +2,7 @@
 
 ## What's Changed
 ### CI
-* refactor: use gh release --target instead of separate git tag by @azu in https://github.com/azu/eventmit/pull/12
+* feat: dynamically fetch package name from package.json in release workflow by @azu in https://github.com/azu/eventmit/pull/14
 
 
-**Full Changelog**: https://github.com/azu/eventmit/compare/v3.0.3...v3.0.4
+**Full Changelog**: https://github.com/azu/eventmit/compare/v3.0.4...v3.0.5
