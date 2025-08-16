@@ -4,6 +4,7 @@ on:
   pull_request:
     branches:
       - master
+      - main
     types:
       - closed
   workflow_dispatch:
@@ -79,24 +80,18 @@ jobs:
         if: steps.tag-check.outputs.exists == 'false'
         run: npm publish --provenance --access public
       
-      - name: Create Git tag
-        if: steps.tag-check.outputs.exists == 'false'
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git tag -a "v${{ steps.version.outputs.version }}" -m "Release v${{ steps.version.outputs.version }}"
-          git push origin "v${{ steps.version.outputs.version }}"
-      
-      - name: Create GitHub Release
+      - name: Create GitHub Release with tag
         if: steps.tag-check.outputs.exists == 'false'
         run: |
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             gh release create "v${{ steps.version.outputs.version }}" \
               --title "v${{ steps.version.outputs.version }}" \
+              --target "${{ github.sha }}" \
               --generate-notes
           else
             gh release create "v${{ steps.version.outputs.version }}" \
               --title "v${{ steps.version.outputs.version }}" \
+              --target "${{ github.sha }}" \
               --notes "${{ github.event.pull_request.body }}"
           fi
         env:
