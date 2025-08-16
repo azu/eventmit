@@ -125,6 +125,7 @@ jobs:
         if: |
           always() && 
           github.event_name == 'pull_request' && 
+          steps.tag-check.outputs.exists == 'false' &&
           failure()
         run: |
           gh pr comment ${{ github.event.pull_request.number }} \
